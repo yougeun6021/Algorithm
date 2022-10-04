@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 public class SumDivisor { //약수의 함
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 public class SquareRoot { // 정수 제곱근 판별
     public static void main(String[] args) {

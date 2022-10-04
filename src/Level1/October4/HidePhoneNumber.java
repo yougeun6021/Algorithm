@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 public class HidePhoneNumber {  //핸드폰 번호 가리기
     public static void main(String[] args) {

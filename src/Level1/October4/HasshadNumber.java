@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 public class HasshadNumber { // 하샤드 수 판별
     public static void main(String[] args) {

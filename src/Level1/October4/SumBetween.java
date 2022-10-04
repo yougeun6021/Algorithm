@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 public class SumBetween { // 두 수 사이의 합
 

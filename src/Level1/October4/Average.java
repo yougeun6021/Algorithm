@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 
 public class Average { // 폍균구하기

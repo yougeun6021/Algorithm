@@ -1,4 +1,4 @@
-package Level1;
+package Level1.October4;
 
 public class StringToInt { // 문자열을 정수로 바꾸기
     public static void main(String[] args) {
