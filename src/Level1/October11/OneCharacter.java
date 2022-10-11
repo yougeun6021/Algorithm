@@ -1,7 +1,9 @@
 package Level1.October11;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class OneCharacter { //한 번만 등장한 문자
     public static void main(String[] args) {
@@ -57,5 +59,23 @@ public class OneCharacter { //한 번만 등장한 문자
 
         return answer.toString();
     }
+    public static String solution3(String s) {
+        String answer = "";
+        List<String> list = new ArrayList<>();
+        String[] arr = s.split("");
+        Arrays.sort(arr);
+        for (String value : arr) {
+            if (!answer.contains(value) && !list.contains(value)) {
+                answer += value;
+            }
+            if (answer.contains(value)) {
+                answer = answer.substring(0, answer.length() - 1);
+                list.add(value);
+            }
+        }
+
+        return answer;
+    }
+
 
 }
