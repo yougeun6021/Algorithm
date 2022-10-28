@@ -1,22 +1,22 @@
-package Level2.October17;
+package Level1.October28;
 
-public class babble { //옹알이
+public class babble2 {
     public static void main(String[] args) {
-        String[] babbling = {"aya", "yee", "u", "maa"};
+        String[] babbling = {"ayaaya", "myea", "u", "maa", "wyeoo"};
         System.out.println(solution(babbling));
 
     }
 
-    public static int solution(String[] babbling) {
+    public static int  solution(String[] babbling) {
         int answer = 0;
         for(String s:babbling){
             if(s.contains("ayaaya") || s.contains("yeye")|| s.contains("woowoo") || s.contains("mama")){
                 continue;
             }
 
-            s = s.replaceAll("aya","").replaceAll("ye","")
-                    .replaceAll("woo","").replaceAll("ma","");
-            if(s.isEmpty()){
+            s = s.replaceAll("aya"," ").replaceAll("ye"," ")
+                    .replaceAll("woo"," ").replaceAll("ma"," ");
+            if(s.trim().isEmpty()){
                 answer++;
             }
         }
