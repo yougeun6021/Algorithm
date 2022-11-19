@@ -10,7 +10,7 @@ public class Permutation {
     }
 
     public static void permutation(int n,int r) {
-        int[] answer = new int[n];
+        int[] answer = new int[r];
         int[] arr = new int[n];
         for(int i=1; i<=n;i++){
             arr[i-1] = i;
@@ -22,6 +22,7 @@ public class Permutation {
     static void perm(int[] arr, int[] output, boolean[] visited, int depth, int n, int r) {
         if (depth == r) {
             System.out.println(Arrays.toString(output));
+            return;
         }
 
         for (int i=0; i<n; i++) {

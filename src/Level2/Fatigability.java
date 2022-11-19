@@ -36,6 +36,7 @@ public class Fatigability { //피로도
                 }
             }
             treeSet.add(count);
+            return;
         }
 
         for (int i=0; i<n; i++) {
