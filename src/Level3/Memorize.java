@@ -164,9 +164,9 @@ public class Memorize { //억억단을 외우자 ->테스트 10 시간초과
 
     public static void getDivisorArr3(int e,int[] divisorNumber,TreeSet<Number> set){
         List<Integer> primeList = new ArrayList<>();
-        divisorNumber[0] = 1;
-        set.add(new Number(0,1));
-        for(int i=1; i<e;i++){
+        divisorNumber[1] = 1;
+        set.add(new Number(1,1));
+        for(int i=2; i<=e;i++){
             if(divisorNumber[i]==0){
                 divisorNumber[i] = 2;
                 primeList.add(i);
