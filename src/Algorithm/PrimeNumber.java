@@ -1,6 +1,7 @@
 package Algorithm;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PrimeNumber {
@@ -8,6 +9,7 @@ public class PrimeNumber {
         int e =5000000;
         int[] divisorArr = new int[e+1];
         int[] divisorArr2 = new int[e+1];
+        int[] divisorArr3 = new int[e+1];
         long beforeTime = System.currentTimeMillis();
         getDivisorArr(e,divisorArr);
         long afterTime = System.currentTimeMillis();
@@ -18,6 +20,13 @@ public class PrimeNumber {
         getDivisorArr2(e,divisorArr2);
         afterTime = System.currentTimeMillis();
         System.out.println(afterTime-beforeTime);
+
+        beforeTime = System.currentTimeMillis();
+        getDivisorArr3(e,divisorArr3);
+        afterTime = System.currentTimeMillis();
+        System.out.println(afterTime-beforeTime);
+
+
     }
 
     public static void getDivisorArr(int e,int[] divisorArr){
@@ -56,7 +65,37 @@ public class PrimeNumber {
                 primeList.add(i);
             }
             for (Integer prime : primeList) {
-                if(i*prime<e){
+                if(i*prime<=e){
+                    if(divisorNumber[i*prime]!=0){
+                        continue;
+                    }
+                    if(i%prime==0){
+                        int num = i;
+                        int count = 0;
+                        while(num%prime==0){
+                            num = num/prime;
+                            count++;
+                        }
+                        divisorNumber[i * prime] = divisorNumber[i]/(count+1)*(count+2);
+                    }else{
+                        divisorNumber[i * prime] = divisorNumber[i] * 2;
+                    }
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+    public static void getDivisorArr3(int e,int[] divisorNumber){
+        List<Integer> primeList = new ArrayList<>();
+        divisorNumber[1] = 1;
+        for(int i=2; i<=e;i++){
+            if(divisorNumber[i]==0){
+                divisorNumber[i] = 2;
+                primeList.add(i);
+            }
+            for (Integer prime : primeList) {
+                if(i*prime<=e){
                     if(divisorNumber[i*prime]!=0){
                         continue;
                     }

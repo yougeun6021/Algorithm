@@ -115,7 +115,7 @@ public class Memorize { //억억단을 외우자 ->테스트 10 시간초과
                 primeList.add(i);
             }
             for (Integer prime : primeList) {
-                if(i*prime<e){
+                if(i*prime<=e){
                     if(divisorNumber[i*prime]!=0){
                         continue;
                     }
@@ -164,14 +164,16 @@ public class Memorize { //억억단을 외우자 ->테스트 10 시간초과
 
     public static void getDivisorArr3(int e,int[] divisorNumber,TreeSet<Number> set){
         List<Integer> primeList = new ArrayList<>();
-        for(int i=1; i<=e;i++){
+        divisorNumber[0] = 1;
+        set.add(new Number(0,1));
+        for(int i=1; i<e;i++){
             if(divisorNumber[i]==0){
-                divisorNumber[i] = getDivisorNumber2(i);
+                divisorNumber[i] = 2;
                 primeList.add(i);
-                set.add(new Number(i,divisorNumber[i]));
+                set.add(new Number(i,2));
             }
             for (Integer prime : primeList) {
-                if(i*prime<e){
+                if(i*prime<=e){
                     if(divisorNumber[i*prime]!=0){
                         continue;
                     }
