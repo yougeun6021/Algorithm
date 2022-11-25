@@ -13,6 +13,7 @@ public class delivery { //배달
     public static int solution(int N, int[][] road, int K) {
         HashMap<Integer, List<DestinationTime>> map = new HashMap<>();
         HashSet<Integer> hashSet = new HashSet<>();
+        boolean[] visited = new boolean[N];
 
         for(int i=1; i<=N; i++){
             map.put(i,new ArrayList<>());
@@ -33,26 +34,26 @@ public class delivery { //배달
 
 
         List<DestinationTime> list = map.get(1);
+        visited[0] = true;
 
-        hashSet = dfs(list,map,K,hashSet,1);
-        System.out.println(hashSet);
+        dfs(list,map,K,hashSet,1,visited);
 
         return hashSet.size();
     }
 
-    public static HashSet<Integer> dfs(List<DestinationTime> list , HashMap<Integer,List<DestinationTime>> map, int K,HashSet<Integer> hashSet,int start){
+    public static void dfs(List<DestinationTime> list , HashMap<Integer,List<DestinationTime>> map, int K,HashSet<Integer> hashSet,int start,boolean[] visited){
         if(K>=0){
             hashSet.add(start);
             for (DestinationTime destinationTime : list) {
                 start = destinationTime.getDestination();
                 int time = K - destinationTime.getTime();
-                if (time >= 0) {
-                        dfs(map.get(start), map, time, hashSet, start);
+                if (time >= 0 && !visited[start-1]) {
+                    visited[start-1] = true;
+                    dfs(map.get(start), map, time, hashSet, start,visited);
+                    visited[start-1] = false;
                 }
             }
         }
-
-        return hashSet;
     }
 
 
