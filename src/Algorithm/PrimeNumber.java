@@ -1,7 +1,6 @@
 package Algorithm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class PrimeNumber {
@@ -10,6 +9,7 @@ public class PrimeNumber {
         int[] divisorArr = new int[e+1];
         int[] divisorArr2 = new int[e+1];
         int[] divisorArr3 = new int[e+1];
+        int[] divisorArr4 = new int[e+1];
         long beforeTime = System.currentTimeMillis();
         getDivisorArr(e,divisorArr);
         long afterTime = System.currentTimeMillis();
@@ -26,6 +26,10 @@ public class PrimeNumber {
         afterTime = System.currentTimeMillis();
         System.out.println(afterTime-beforeTime);
 
+        beforeTime = System.currentTimeMillis();
+        getDivisorArr4(e,divisorArr4);
+        afterTime = System.currentTimeMillis();
+        System.out.println(afterTime-beforeTime);
 
     }
 
@@ -140,6 +144,14 @@ public class PrimeNumber {
             }
         }
         return count;
+    }
+
+    public static void getDivisorArr4(int e,int[] divisorNumber){
+        for(int i=1;i<=e;i++){
+            for(int j=1; j<=e/i;j++){
+                divisorNumber[i*j]++;
+            }
+        }
     }
 
 
