@@ -53,5 +53,29 @@ public class Palindrome { //가장 긴 펠린드롬
         return answer;
     }
 
+    public static int solution3(String s)
+    {
+        int answer = 1;
+        for(int i=0; i<s.length();i++){
+            for(int j=s.length()-1; j>i;j--){
+                if(s.charAt(i)==s.charAt(j)){
+                    boolean equal = true;
+                    for(int k=0; k<(j+1-i)/2;k++){
+                        if(s.charAt(i+k)!=s.charAt(j-k)){
+                            equal = false;
+                            break;
+                        }
+                    }
+                    if(equal){
+                        answer = Math.max(answer,j+1-i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return answer;
+    }
+
 
 }
